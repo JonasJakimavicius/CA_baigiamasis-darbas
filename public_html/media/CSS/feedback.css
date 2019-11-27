@@ -1,0 +1,84 @@
+table {
+  margin: 30px auto;
+  display: block;
+  width: 80%;
+  background: rgba(0, 0, 0, 0.575);
+  border-radius: 7px;
+  text-align: center;
+}
+
+tr {
+  height: 30px;
+  border: 1px solid grey;
+  margin-top: 20px;
+}
+.comment-column {
+  width: 400px;
+}
+.name-column {
+  width: 25%;
+}
+.date-column {
+  width: 25%;
+}
+td {
+  background: rgba(151, 149, 149, 0.192);
+  color: white;
+}
+th {
+  color: white;
+}
+.not-registered {
+  display: block;
+  width: 300px;
+  margin: 0px auto 20px;
+}
+
+body {
+  background-image: url("../images/bgimg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.feedback-form {
+  margin: 50px auto;
+  width: 80%;
+  display: block;
+}
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 7px;
+}
+
+.feedbackForm {
+  background:rgba(0, 0, 0, 0.418);
+  width: 500px;
+  border-radius: 7px;
+}
+
+.feedbackForm input {
+  height: 150px;
+  width: 300px;
+  display: block;
+  margin: auto;
+  border-radius: 7px;
+}
+
+.feedbackForm span {
+
+  text-align: center;
+  width: 400px;
+  display: block;
+  margin: 20px auto 20px;
+}
+.feedbackForm button {
+  display: block;
+  width: 300px;
+  height: 40px;
+  margin: 30px auto 30px;
+  border-radius: 7px;
+  background-color: darkgrey;
+}

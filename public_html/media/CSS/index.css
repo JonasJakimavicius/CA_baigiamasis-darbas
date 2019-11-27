@@ -1,0 +1,71 @@
+
+.hero-container {
+    height: 150px;
+    width: 100vw;
+    background-image: url("../images/hero.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.main-container {
+
+    max-width: 800px;
+    display: block;
+    margin: 20px auto 20px;
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-container {
+    width: 80%;
+    margin-top: 20px;
+    height: 350px;
+    border: 1px solid grey;
+    border-radius: 4px;
+
+}
+
+.card-img-container {
+    height: 40%;
+}
+
+.service-name-container {
+    text-align: center;
+    margin: 10px 5px;
+}
+
+.service-description-container {
+    margin: 0 5px;
+    text-align: center;
+}
+
+.card-img {
+    background-position: top;
+    background-size: cover;
+    height: 100%;
+}
+
+.img1 {
+    background-image: url("../images/image1.jpeg");
+}
+
+.img2 {
+    background-image: url("../images/image2.jpg");
+}
+
+.img3 {
+    background-image: url("../images/image3.png")
+}
+
+.map {
+    height: 300px;
+    width: 100vw;
+    left: 0;
+    bottom: 70px;
+}
+

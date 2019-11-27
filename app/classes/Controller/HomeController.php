@@ -24,10 +24,6 @@ class HomeController extends Controller
      */
     public function initializePost()
     {
-
-        $this->page['content'] = ['homeForm' => $this->form->validateForm()];
-
-
     }
 
     /**
@@ -37,8 +33,10 @@ class HomeController extends Controller
     public function initializeGet()
     {
 
-        $this->page['content'] = ['homeForm' => 'home page'];
-
+        $this->page['content'] = ['homeForm' =>(new \App\Views\HomePage())->render()];
+        $this->page['stylesheets'][]= 'media/CSS/index.css';
+        $this->page['stylesheets'][]= 'media/CSS/responsive.css';
+        $this->page['stylesheets'][]= 'media/CSS/footer.css';
 
     }
 

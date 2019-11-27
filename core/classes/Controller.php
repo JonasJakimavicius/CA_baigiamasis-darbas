@@ -20,7 +20,7 @@ class Controller
         // Init Page Defaults
         $this->page = [
             'title' => 'Taxi',
-            'stylesheets' => ['media/CSS/navbar.css'],
+            'stylesheets'=> ['media/CSS/main.css'],
             'scripts' => [
                 'head' => [],
                 'body_start' => [],

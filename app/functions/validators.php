@@ -1,18 +1,5 @@
 <?php
 
-function validate_login($filtered_input, &$form) {
-    $login_success = \App\App::$session->login(
-            $filtered_input['email'],
-            $filtered_input['password']
-    );
-
-    if (!$login_success) {
-        $form['fields']['password']['error'] = 'Prisijungimo duomenys neteisingi!';
-        $form['fields']['password']['value'] = '';
-        return false;
-    }
-    return true;
-}
 
 function validate_email_exists($field_value, &$field) {
 
@@ -23,6 +10,31 @@ function validate_email_exists($field_value, &$field) {
     }else{
         return true;
     }
-    
 
+
+}
+
+function validate_is_registered($field_value, &$field)
+{
+    if (!\App\App::$user_repository->load(['email' => $field_value])) {
+        $field['error'] = 'User does not exist';
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function validate_email_and_password($filtered_input, &$form, $params)
+{
+    if (!empty($filtered_input['email'])) {
+        $user = (\App\App::$user_repository->load(['email' => $filtered_input['email']]))[0];
+        if (!empty($user)) {
+            if ($user->getPassword() !== $filtered_input['password']) {
+                $form['message'] = 'Wrong password';
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
 }

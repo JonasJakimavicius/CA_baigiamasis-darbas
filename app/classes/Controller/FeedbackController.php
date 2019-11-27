@@ -15,6 +15,7 @@ class FeedbackController extends Controller
     {
         parent::__construct();
         $this->form = new FeedbackForm();
+        $this->page['scripts']['body_end'][] = 'media/JS/main.js';
     }
 
     /**
@@ -23,13 +24,7 @@ class FeedbackController extends Controller
      */
     public function initializePost()
     {
-        if (App::$session->isLoggedIn()) {
-            $this->page['stylesheets'] = 'media/CSS/feedback.css';
-            $this->page['content'][] = $this->form->validateForm();
-        } else {
-            $this->page['stylesheets'] = 'media/CSS/feedback.css';
-            $this->page['content'][] = (new \App\Views\FeedbackNotLoggedIn())->render();
-        }
+
     }
 
     /**
@@ -42,12 +37,13 @@ class FeedbackController extends Controller
             $this->page['stylesheets'][] = 'media/CSS/feedback.css';
             $this->page['content']['feedback-table'] = (new \App\Views\FeedbackTable())->render();
             $this->page['content']['feedback-form'] = (new \App\Views\FeedbackForm())->render();
-            $this->page['scripts']['body_end'][] = 'media/JS/main.js';
+
         } else {
+
             $this->page['content']['feedback-table'] = (new \App\Views\FeedbackTable())->render();
+            $this->page['content']['not-registered'] = (new \App\Views\FeedbackNotLoggedIn())->render();
             $this->page['stylesheets'][] = 'media/CSS/feedback.css';
-            $this->page['content'][] = (new \App\Views\FeedbackNotLoggedIn())->render();
-            $this->page['scripts']['body_end'][] = 'media/JS/main.js';
+
         }
     }
 

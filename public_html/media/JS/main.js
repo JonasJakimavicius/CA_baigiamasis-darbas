@@ -125,9 +125,9 @@ const commentsTable = {
             rowTr.className = 'table-row';
             rowTr.setAttribute('card-id', feedback.id);
             rowTr.innerHTML = `
-            <td>${feedback.name}</td>
-            <td>${feedback.comment}</td> 
-            <td>${feedback.date}</td>
+            <td class="name-column">${feedback.name}</td>
+            <td class="comment-column">${feedback.comment}</td> 
+            <td class="date-column">${feedback.date}</td>
 `;
             return rowTr;
         },

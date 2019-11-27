@@ -26,7 +26,8 @@ class LoginController extends Controller
     {
         $this->page['header'] = (new \App\Views\NavBar())->render();
         $this->page['content'] = ['LoginForm' => $this->form->validateForm()];
-        $this->page['stylesheets'] = ['media/CSS/navbar.css'];
+
+        $this->page['stylesheets'][]= 'media/CSS/forms.css';
 
     }
 
@@ -36,7 +37,8 @@ class LoginController extends Controller
      */
     public function initializeGet()
     {
-        $this->page['stylesheets'] = ['media/CSS/navbar.css'];
+
+        $this->page['stylesheets'][]= 'media/CSS/forms.css';
         $this->page['content'] = ['registerForm' => (new \App\Views\LoginForm())->render()];
         $this->page['header'] = (new \App\Views\NavBar())->render();
 
