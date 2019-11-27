@@ -14,7 +14,7 @@ class Comment
             $this->data = [
                 'name' => null,
                 'comment' => null,
-                'date'=>null,
+                'date' => null,
             ];
 
         } else {
@@ -78,7 +78,7 @@ class Comment
     {
         $this->setName($data['name']);
         $this->setComment($data['comment']);
-        $this->setDate($data['date']);
+
     }
 
     /**

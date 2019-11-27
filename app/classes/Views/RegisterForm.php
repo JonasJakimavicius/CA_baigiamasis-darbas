@@ -25,7 +25,9 @@ class RegisterForm extends Form
                 'extra' => [
                     'validators' => [
                         'validate_not_empty',
-                        'validate_length',
+                        'validate_length'=>[
+                            40
+                        ],
                         'validate_string',
                     ],
                 ],
@@ -40,7 +42,9 @@ class RegisterForm extends Form
                 'extra' => [
                     'validators' => [
                         'validate_not_empty',
-                        'validate_length',
+                        'validate_length'=>[
+                            40
+                        ],
                         'validate_string',
                     ],
                 ],

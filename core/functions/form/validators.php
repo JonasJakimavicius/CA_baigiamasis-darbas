@@ -12,10 +12,10 @@ function validate_not_empty($field_value, &$field)
     }
 }
 
-function validate_length($field_value, &$field)
+function validate_length($field_value, &$field, $params)
 {
-    if (strlen($field_value) > 40 || $field_value === null) {
-        $field['error'] = 'Field can not be longer than 40 symbols';
+    if (strlen($field_value) > $params[0] || $field_value === null) {
+        $field['error'] = 'Field value is to long';
         return false;
     } else {
         return true;

@@ -34,7 +34,9 @@ const forms = {
     create: {
         init: function () {
             console.log('Setting eventListeners on create form');
-            this.getElement().addEventListener('submit', this.onSubmitListener)
+            if(this.getElement()!==null) {
+                this.getElement().addEventListener('submit', this.onSubmitListener)
+            }
         },
         getElement: function () {
             return document.querySelector('.feedback-form');
@@ -45,7 +47,8 @@ const forms = {
             api(endpoints.create, formData, forms.create.success, forms.create.fail)
         },
         success: function (data) {
-            commentsTable.card.insert(data);
+
+            commentsTable.row.insert(data);
             let element = forms.create.getElement();
             forms.ui.errors.hide(element);
             forms.ui.clear(element);
@@ -88,15 +91,6 @@ const forms = {
                 field.value = '';
             })
         },
-        fill: function (form, comment) {
-            form.setAttribute('card-id', comment.id);
-            Object.keys(comment).forEach(input_id => {
-                if (input_id !== 'id') {
-                    let input = form.querySelector('input[name="' + input_id + '"]');
-                    input.value = comment[input_id];
-                }
-            });
-        }
     }
 }
 
@@ -123,7 +117,6 @@ const commentsTable = {
                 console.log(error)
             })
         }
-
     },
 
     row: {
@@ -132,19 +125,15 @@ const commentsTable = {
             rowTr.className = 'table-row';
             rowTr.setAttribute('card-id', feedback.id);
             rowTr.innerHTML = `
-          <td>${feedback.name}</td>
-          <td>${feedback.comment}</td> 
+            <td>${feedback.name}</td>
+            <td>${feedback.comment}</td> 
             <td>${feedback.date}</td>
 `;
-
-
-            return cardCont;
-
+            return rowTr;
         },
         insert: function (comment) {
             commentsTable.getElement().append(commentsTable.row.render(comment));
         },
-
     },
 }
 

@@ -18,3 +18,4 @@ if (\App\App::$session->isLoggedIn()) {
     Router::addRoute('/login', 'App\controller\LoginController');
 
 }
+

@@ -2,6 +2,8 @@
 
 namespace App\Views;
 
+use App\App;
+use App\Comment\Comment;
 use Core\Forms\Form;
 
 class FeedbackForm extends Form
@@ -18,6 +20,14 @@ class FeedbackForm extends Form
                 'attr' => [
                     'placeholder' => 'Parašykite komentarą apie mus!',
                     'class' => 'feedback-input'
+                ],
+                'extra' => [
+                    'validators' => [
+                        'validate_not_empty',
+                        'validate_length' => [
+                            500,
+                        ],
+                    ],
                 ],
             ],
         ],
@@ -42,23 +52,31 @@ class FeedbackForm extends Form
 
     }
 
-//    public function formSuccess($filtered_input, $data)
-//    {
-//
-//        $user = new User($filtered_input);
-//        App::$user_repository->insert($user);
-//        header('location:/login');
-//
-//    }
-//
-//    public function formFail($filtered_input, $data)
-//    {
-//
-//        try {
-//            return $this->render();
-//        } catch (\Exception $e) {
-//        }
-//    }
+    public function formSuccess($filtered_input, $form)
+    {
+        $comment = new Comment(['comment' => $filtered_input['feedback'], 'name' => (App::$session->getUser())->getName()]);
+        $insertSuccess = App::$comment_repository->insert($comment);
+        if ($insertSuccess) {
+            $allComments = App::$comment_repository->load();
+            $newComment = $allComments[sizeof($allComments) - 1];
+            return ['success' => true, $newComment];
+        } else {
+            return ['success' => false,];
+        }
+    }
+
+    public function formFail($filtered_input, $form)
+    {
+
+        $response = new \Core\Api\Response();
+        $errors = [];
+        foreach ($form['fields'] as $field_id => $field) {
+            if (isset($field['error'])) {
+                $response->addError($field['error'], $field_id);
+            }
+        }
+        $response->print();
+    }
 
     public function render($templatePath = '')
     {

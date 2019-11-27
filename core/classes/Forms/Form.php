@@ -56,8 +56,10 @@ class Form extends View
                 // We can make validator receive params, setting it as an array itself
                 // in that case, validator id becomes its callback function
                 if (is_array($validator)) {
+
                     $is_valid = $validator_id($field_value, $field, $validator);
                 } else {
+
                     $is_valid = $validator($field_value, $field);
                 }
                 if (!$is_valid) {
@@ -91,9 +93,9 @@ class Form extends View
 
         } else {
             if (isset($this->data['callbacks']['fail'])) {
-               $json_string= $this->formFail($this->filtered_input, $this->data);
+                $json_string = $this->formFail($this->filtered_input, $this->data);
 
-        }
+            }
         }
         return $json_string;
 

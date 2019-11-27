@@ -1,0 +1,1 @@
+<div class="feedback-not-logged">Norite parašyti komentarą? <a href="/register">Užsiregistruokite.</a></div>

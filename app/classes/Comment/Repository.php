@@ -49,6 +49,7 @@ class Repository
 
             $comment = new  \App\Comment\Comment($row);
             $comment->setId($row['id']);
+            $comment->setDate($row['date']);
             $comments[] = $comment;
         }
         return $comments;

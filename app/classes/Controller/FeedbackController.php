@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\App;
 use App\Views\FeedbackForm;
 use Core\Controller;
 use Core\View;
@@ -22,8 +23,13 @@ class FeedbackController extends Controller
      */
     public function initializePost()
     {
-        $this->page['stylesheets'] = 'media/CSS/feedback.css';
-        $this->page['content'][] = $this->form->validateForm();
+        if (App::$session->isLoggedIn()) {
+            $this->page['stylesheets'] = 'media/CSS/feedback.css';
+            $this->page['content'][] = $this->form->validateForm();
+        } else {
+            $this->page['stylesheets'] = 'media/CSS/feedback.css';
+            $this->page['content'][] = (new \App\Views\FeedbackNotLoggedIn())->render();
+        }
     }
 
     /**
@@ -32,15 +38,26 @@ class FeedbackController extends Controller
      */
     public function initializeGet()
     {
-        $this->page['stylesheets'][] = 'media/CSS/feedback.css';
-        $this->page['content']['feedback-table'] = (new \App\Views\FeedbackTable())->render();
-        $this->page['content']['feedback-form'] = (new \App\Views\FeedbackForm())->render();
-        $this->page['scripts']['body_end'][]='media/JS/main.js';
-
+        if (App::$session->isLoggedIn()) {
+            $this->page['stylesheets'][] = 'media/CSS/feedback.css';
+            $this->page['content']['feedback-table'] = (new \App\Views\FeedbackTable())->render();
+            $this->page['content']['feedback-form'] = (new \App\Views\FeedbackForm())->render();
+            $this->page['scripts']['body_end'][] = 'media/JS/main.js';
+        } else {
+            $this->page['content']['feedback-table'] = (new \App\Views\FeedbackTable())->render();
+            $this->page['stylesheets'][] = 'media/CSS/feedback.css';
+            $this->page['content'][] = (new \App\Views\FeedbackNotLoggedIn())->render();
+            $this->page['scripts']['body_end'][] = 'media/JS/main.js';
+        }
     }
 
     public function onRender()
     {
-        return (new View($this->page))->render(ROOT . '/core/views/layout.tpl.php');
+        try {
+            return (new View($this->page))->render(ROOT . '/core/views/layout.tpl.php');
+        } catch (\Exception $e) {
+        }
     }
-};
+}
+
+;
