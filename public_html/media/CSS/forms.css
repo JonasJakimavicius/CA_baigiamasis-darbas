@@ -1,9 +1,9 @@
-body{
+body {
     background-image: url("../images/bgimg.jpg");
     background-size: cover;
     background-position: center;
-
 }
+
 .content-wrapper {
     height: calc(100vh - 140px);
     width: 60%;
@@ -23,46 +23,59 @@ body{
     justify-content: center;
 }
 
-
-
 .field-wrapper {
-    display: block;
-    margin: auto;
-    width: 200px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.field-wrapper{
+.field-wrapper {
     height: 50px;
     width: 300px;
 }
+
 .field-wrapper input {
     border-radius: 7px;
     float: right;
     margin-top: 5px;
     margin-bottom: 5px;
     width: 200px;
-
+    margin-right: 5px
 }
 
 .field-wrapper .label {
     float: left;
     margin-top: 5px;
     margin-bottom: 5px;
+    margin-left: 5px;
 }
 
 .field-wrapper label {
-    width:100%;
+    width: 100%;
 }
-.button-wrapper button{
+
+.button-wrapper button {
     display: block;
     margin: auto;
-    width: 300px;
+    width: 280px;
     height: 50px;
     border-radius: 7px;
     background-color: darkgrey;
 }
 
-.error{
+.error {
     width: 200px;
-    color:rgb(173, 30, 30);
+    color: rgb(173, 30, 30);
+}
+
+.message-wrapper {
+    color: red;
+}
+
+.field-error {
+    color: red;
+}
+
+form:hover button {
+    background-color: rgba(32, 119, 32, 0.582);
+    transition: all 0.3s;
 }

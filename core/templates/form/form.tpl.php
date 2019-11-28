@@ -2,20 +2,19 @@
     <div class='form-wrapper'>
         <form <?php print html_attr($data['attr'] ?? ['method' => 'POST']); ?>>
 
-            <!--Start Field Generation-->
+
             <?php foreach ($data['fields'] as $field_id => $field): ?>
                 <div class="field-wrapper">
-<!--                    --><?php //var_dump($field); ?>
-<!--                    --><?php //var_dump($field_id); ?>
+
                     <?php if (isset($field['label'])): ?>
-                    <!--If the label is set - print fields inside label-->
+
                     <label>
                             <span class="label">
                                 <?php print $field['label']; ?>
                             </span>
                         <?php endif; ?>
 
-                        <!--fields to be printed-->
+
                         <?php if (in_array($field['type'], ['hidden', 'text', 'password', 'email', 'number'])): ?>
                             <?php require 'elements/input.tpl.php'; ?>
                         <?php elseif ($field['type'] === 'select'): ?>
@@ -36,7 +35,7 @@
                     <?php endif; ?>
                 </div>
             <?php endforeach; ?>
-            <!--Field Generator End-->
+
 
             <?php if (isset($data['message'])): ?>
                 <div class="message-wrapper">
@@ -47,11 +46,10 @@
             <?php if (isset($data['buttons']) && !empty($data['buttons'])): ?>
                 <div class="button-wrapper">
 
-                    <!--Generate all the buttons-->
                     <?php foreach ($data['buttons'] as $button_id => $button): ?>
                         <?php require 'elements/button.tpl.php'; ?>
                     <?php endforeach; ?>
-                    <!--Button Generator End-->
+
                 </div>
             <?php endif; ?>
         </form>

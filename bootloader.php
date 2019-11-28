@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 require 'config.php';
 
@@ -17,4 +17,4 @@ require ROOT . '/app/functions/validators.php';
 // Create App
 $app = new \App\App();
 
-require ('app/config/routes.php');
+require('app/config/routes.php');

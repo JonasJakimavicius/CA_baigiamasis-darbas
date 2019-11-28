@@ -2,7 +2,8 @@
 
 namespace Core\Database;
 
-class SQLBuilder {
+class SQLBuilder
+{
 
     /**
      * Returns $column, but surrounded with backticks
@@ -10,7 +11,8 @@ class SQLBuilder {
      * @param string $column column 1
      * @return string `column 1`
      */
-    public static function schema($schema): string {
+    public static function schema($schema): string
+    {
         return "`$schema`";
     }
 
@@ -20,7 +22,8 @@ class SQLBuilder {
      * @param string $column column 1
      * @return string `column 1`
      */
-    public static function table($table): string {
+    public static function table($table): string
+    {
         return "`$table`";
     }
 
@@ -30,7 +33,8 @@ class SQLBuilder {
      * @param string $column column 1
      * @return string `column 1`
      */
-    public static function column($column): string {
+    public static function column($column): string
+    {
         return "`$column`";
     }
 
@@ -40,7 +44,8 @@ class SQLBuilder {
      * @param array $column_array ['column 1', 'column 2', ...]
      * @return string `column 1`, `column 2`, `column 2`
      */
-    public static function columns($column_array): string {
+    public static function columns($column_array): string
+    {
         foreach ($column_array as &$column) {
             $column = self::column($column);
         }
@@ -58,7 +63,8 @@ class SQLBuilder {
      * @param string $bind_prefix (Optional) Prefix to bind
      * @return string :column_1
      */
-    public static function bind($column, $bind_prefix = ''): string {
+    public static function bind($column, $bind_prefix = ''): string
+    {
         return ':' . $bind_prefix . str_replace(' ', '_', $column);
     }
 
@@ -69,7 +75,8 @@ class SQLBuilder {
      * @param string $bind_prefix (Optional) Prefix to bind
      * @return string :column_1, :column_2, :column_3
      */
-    public static function binds($column_array, $bind_prefix = ''): string {
+    public static function binds($column_array, $bind_prefix = ''): string
+    {
         foreach ($column_array as &$column) {
             $column = self::bind($column, $bind_prefix);
         }
@@ -83,7 +90,8 @@ class SQLBuilder {
      * @param string $column column 1
      * @return string `column 1`=:column_1
      */
-    public static function columnEqualBind($column, $bind_prefix = ''): string {
+    public static function columnEqualBind($column, $bind_prefix = ''): string
+    {
         return self::column($column) . ' = ' . self::bind($column, $bind_prefix);
     }
 
@@ -95,7 +103,8 @@ class SQLBuilder {
      * @param string $delimiter Can be changed to 'AND', 'OR', etc...
      * @return string `column 1`=:column_1, `column 2`=:column_2,
      */
-    public static function columnsEqualBinds($column_array, $delimiter = ', ', $bind_prefix = ''): string {
+    public static function columnsEqualBinds($column_array, $delimiter = ', ', $bind_prefix = ''): string
+    {
         foreach ($column_array as &$column) {
             $column = self::columnEqualBind($column, $bind_prefix);
         }
@@ -109,7 +118,8 @@ class SQLBuilder {
      * @param string $value some value
      * @return string 'some value'
      */
-    public static function value($value): string {
+    public static function value($value): string
+    {
         return is_string($value) ? "'$value'" : $value;
     }
 
@@ -120,7 +130,8 @@ class SQLBuilder {
      * @param array $value_array ['value 1', 'value 2', ...]
      * @return string 'value 1', 'value 2'
      */
-    public static function values($value_array): string {
+    public static function values($value_array): string
+    {
         foreach ($value_array as &$value) {
             $value = self::value($value);
         }

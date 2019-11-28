@@ -1,4 +1,3 @@
-
 <?php if (isset($data) && !empty($data)): ?>
     <div class="wrapper nav-flex">
         <nav>

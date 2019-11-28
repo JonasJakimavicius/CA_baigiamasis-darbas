@@ -33,7 +33,7 @@ class Repository
     {
 
         return $this->model->insertIfNotExists(
-            $comment->getData(), ['comment','name']);
+            $comment->getData(), ['comment', 'name']);
     }
 
     /**

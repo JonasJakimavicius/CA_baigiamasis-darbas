@@ -20,7 +20,7 @@ class Controller
         // Init Page Defaults
         $this->page = [
             'title' => 'Taxi',
-            'stylesheets'=> ['media/CSS/main.css'],
+            'stylesheets' => ['media/CSS/main.css'],
             'scripts' => [
                 'head' => [],
                 'body_start' => [],
@@ -29,10 +29,6 @@ class Controller
             'header' => (new \App\Views\NavBar())->render(),
             'footer' => (new \App\Views\Footer())->render(),
             'content' => [
-//                'top'=>[],
-//                'middle'=>[ 'This is core controller!'
-//                    . 'You need to extend this class in your App!',],
-//                'bottom'=>[],
             ],
 
         ];

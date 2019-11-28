@@ -36,7 +36,7 @@ class RegisterController extends Controller
     public function initializeGet()
     {
         $this->page['content'] = ['register' => (new \App\Views\RegisterForm())->render()];
-        $this->page['stylesheets'][]= 'media/CSS/forms.css';
+        $this->page['stylesheets'][] = 'media/CSS/forms.css';
     }
 
     public function onRender()

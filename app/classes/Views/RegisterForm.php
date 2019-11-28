@@ -19,13 +19,12 @@ class RegisterForm extends Form
                 'type' => 'text',
                 'label' => 'Vardas',
                 'attr' => [
-                    'placeholder' => 'Vardas',
                     'class' => 'name'
                 ],
                 'extra' => [
                     'validators' => [
                         'validate_not_empty',
-                        'validate_length'=>[
+                        'validate_length' => [
                             40
                         ],
                         'validate_string',
@@ -36,13 +35,12 @@ class RegisterForm extends Form
                 'type' => 'text',
                 'label' => 'Pavardė',
                 'attr' => [
-                    'placeholder' => 'Pavardė',
                     'class' => 'surname'
                 ],
                 'extra' => [
                     'validators' => [
                         'validate_not_empty',
-                        'validate_length'=>[
+                        'validate_length' => [
                             40
                         ],
                         'validate_string',
@@ -53,7 +51,6 @@ class RegisterForm extends Form
                 'type' => 'email',
                 'label' => 'El. paštas',
                 'attr' => [
-                    'placeholder' => 'El. paštas',
                     'class' => 'email'
                 ],
                 'extra' => [
@@ -68,7 +65,6 @@ class RegisterForm extends Form
                 'type' => 'password',
                 'label' => 'Slaptažodis',
                 'attr' => [
-                    'placeholder' => 'Slaptažodis',
                     'class' => 'password'
                 ],
                 'extra' => [
@@ -81,7 +77,6 @@ class RegisterForm extends Form
                 'type' => 'number',
                 'label' => 'Tel. nr.',
                 'attr' => [
-                    'placeholder' => 'Tel Nr.',
                     'class' => 'phone_number'
                 ],
             ],

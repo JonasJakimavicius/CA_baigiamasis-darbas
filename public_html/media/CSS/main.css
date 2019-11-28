@@ -1,15 +1,15 @@
 body {
-  margin: 0px;
+    margin: 0px;
 }
 
-.header-wrapper{
-    background-color:black;
+.header-wrapper {
+    background-color: black;
     height: 70px;
 
 }
 
 
-.nav-flex{
+.nav-flex {
     max-width: 800px;
     display: block;
     margin: auto;
@@ -18,7 +18,7 @@ body {
 nav {
     height: 100%;
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -27,34 +27,42 @@ nav .link-wrapper {
     padding: 5px;
 }
 
-.link-wrapper a{
+.link-wrapper a {
     text-decoration: none;
-    color:white;
+    color: white;
+    font-size: 13px;
 }
+
+.link-wrapper:hover a {
+    color: rgb(70, 66, 66);
+    transition: all 0.3s;
+}
+
 nav .link-wrapper.active {
     border: 2px solid rgb(70, 66, 66);
-    font-weight: bold;    
+    border-radius: 7px;
+    font-weight: bold;
 }
 
-.left{
-    margin-top:19px;
+.left {
+    margin-top: 19px;
 }
 
-.right{
-    margin-top:19px
+.right {
+    margin-top: 19px
 }
 
 .footer {
-  height: 70px;
-  width: 100vw;
-  background-color: black;
-  color: white;
-  text-align: center;
+    height: 70px;
+    width: 100vw;
+    background-color: black;
+    color: white;
+    text-align: center;
 }
 
 .footer-text {
-  display: inline-block;
-  margin-top: 26px;
-  margin-bottom: 26px;
-  line-height: 18px;
+    display: inline-block;
+    margin-top: 26px;
+    margin-bottom: 26px;
+    line-height: 18px;
 }

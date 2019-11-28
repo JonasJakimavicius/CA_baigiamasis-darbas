@@ -19,7 +19,6 @@ class Response
     public function print()
     {
         $is_success = $this->errors ? false : true;
-//var_dump($this->data);
         print json_encode([
             'status' => $is_success ? 'success' : 'fail',
             'data' => $this->data,
@@ -30,20 +29,16 @@ class Response
 
     public function setData($data)
     {
-
         $this->data = $data;
-
     }
 
     public function addData($body, $index = null)
     {
-
         if ($index) {
             $this->data[$index] = $body;
         } else {
             $this->data[] = $body;
         }
-
     }
 
     public function setErrors($errors)

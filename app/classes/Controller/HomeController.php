@@ -33,10 +33,10 @@ class HomeController extends Controller
     public function initializeGet()
     {
 
-        $this->page['content'] = ['homeForm' =>(new \App\Views\HomePage())->render()];
-        $this->page['stylesheets'][]= 'media/CSS/index.css';
-        $this->page['stylesheets'][]= 'media/CSS/responsive.css';
-        $this->page['stylesheets'][]= 'media/CSS/footer.css';
+        $this->page['content'] = ['homeForm' => (new \App\Views\HomePage())->render()];
+        $this->page['stylesheets'][] = 'media/CSS/index.css';
+        $this->page['stylesheets'][] = 'media/CSS/responsive.css';
+        $this->page['stylesheets'][] = 'media/CSS/footer.css';
 
     }
 
@@ -44,4 +44,6 @@ class HomeController extends Controller
     {
         return (new View($this->page))->render(ROOT . '/core/views/layout.tpl.php');
     }
-};
+}
+
+;

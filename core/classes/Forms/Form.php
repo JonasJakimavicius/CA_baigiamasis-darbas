@@ -42,7 +42,6 @@ class Form extends View
         $this->getFormInput();
         $success = true;
 
-
         foreach ($this->data['fields'] as $field_id => &$field) {
             $field_value = $this->filtered_input[$field_id];
 
@@ -51,15 +50,11 @@ class Form extends View
             $field['value'] = $field_value;
 
             foreach ($field['extra']['validators'] ?? [] as $validator_id => $validator) {
-//                var_dump($validator);
-//                var_dump($validator_id);
                 // We can make validator receive params, setting it as an array itself
                 // in that case, validator id becomes its callback function
                 if (is_array($validator)) {
-
                     $is_valid = $validator_id($field_value, $field, $validator);
                 } else {
-
                     $is_valid = $validator($field_value, $field);
                 }
                 if (!$is_valid) {
@@ -85,16 +80,12 @@ class Form extends View
 
         if ($success) {
             if (isset($this->data['callbacks']['success'])) {
-
                 $json_string = $this->formSuccess($this->filtered_input, $this->data);
-
-
             }
 
         } else {
             if (isset($this->data['callbacks']['fail'])) {
                 $json_string = $this->formFail($this->filtered_input, $this->data);
-
             }
         }
         return $json_string;

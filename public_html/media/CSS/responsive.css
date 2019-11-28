@@ -1,28 +1,36 @@
-
-
-
 @media (min-width: 400px) {
     .hero-container {
         height: 300px;
     }
+
     .card-container {
         width: 25%;
-        height: 650px;
+        height: 380px;
     }
+
     .cards-container {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-around;
+        height: 400px;
     }
-    .main-container{
-        height: 700px;
+
+    .main-container {
+        height: 400px;
+    }
+
+    .link-wrapper a {
+        font-size: 16px;
     }
 }
 
 
-@media (min-width: 768px) {  }
+@media (min-width: 768px) {
+}
 
 
-@media (min-width: 992px) {  }
+@media (min-width: 992px) {
+}
 
 
-@media (min-width: 1200px) {  }
+@media (min-width: 1200px) {
+}

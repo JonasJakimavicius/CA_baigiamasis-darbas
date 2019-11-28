@@ -1,13 +1,14 @@
 <?php
 
 
-function validate_email_exists($field_value, &$field) {
+function validate_email_exists($field_value, &$field)
+{
 
     $users = \App\App::$user_repository->load(['email' => $field_value]);
     if (!empty($users)) {
-     $field['error'] = 'User with this e-mail already exists!';
+        $field['error'] = 'User with this e-mail already exists!';
         return false;
-    }else{
+    } else {
         return true;
     }
 

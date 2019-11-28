@@ -6,11 +6,11 @@ $response = new \Core\Api\Response();
 $feedbacks = \App\App::$comment_repository->load($_POST);
 
 
-if($feedbacks) {
+if ($feedbacks) {
     foreach ($feedbacks as $comment) {
         $response->addData($comment->getData());
     }
-}else{
+} else {
     $response->addError('Could not pull data from database!');
 }
 

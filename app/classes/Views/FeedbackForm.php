@@ -18,7 +18,6 @@ class FeedbackForm extends Form
                 'type' => 'text',
                 'label' => 'Parašykite atsiliepimą',
                 'attr' => [
-                    'placeholder' => 'Parašykite komentarą apie mus!',
                     'class' => 'feedback-input'
                 ],
                 'extra' => [

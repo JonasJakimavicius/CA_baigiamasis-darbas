@@ -20,7 +20,6 @@ class LoginForm extends Form
                 'type' => 'email',
                 'label' => 'El. paštas',
                 'attr' => [
-                    'placeholder' => 'El.paštas',
                     'class' => 'email'
                 ],
                 'extra' => [
@@ -35,7 +34,6 @@ class LoginForm extends Form
                 'type' => 'password',
                 'label' => 'Slaptažodis',
                 'attr' => [
-                    'placeholder' => 'Slaptažodis',
                     'class' => 'password'
                 ],
                 'extra' => [
